@@ -113,6 +113,14 @@ a:link {
 .buttonStyle:active {
 	background:#A66E6D;
 }
+.navArrow {
+    margin:365px auto;
+	width: 0; 
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid gray;
+}
 .sectionTwo {
     margin:500px -8px 0px -8px; 
     width:auto; 
