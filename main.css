@@ -36,7 +36,7 @@ background:#000
 	width:890px;
 	margin:0 auto;
 	/*margin:-10px;*/
-	background-color:lightgray;
+	background-color:#D7E9ED;
 	/*text-align:center;*/
 	/*color:white;*/
 	/*width:75px;*/
@@ -124,27 +124,28 @@ a:link {
 .sectionTwo {
     margin:500px -8px 0px -8px; 
     width:auto; 
-    height:600px;
+    height:800px;
     background-color:#1C2329;
 }
 .sectionTwo h1 {
     font-size:30px;
     text-align:center;
     padding:20px 10px 10px;
+    /*color:#F27A55;*/
 }
 
 .sectionTwo .box {
     display:inline;
+    float:left;
     height:400px;
-    width:600px;
+    width:50%;
     overflow:hidden;
 }
-
-.sectionTwo .box2 {
-    float:right;    
+.sectionTwo .box2 {    
     display:inline;
+    padding:20px;
     height:400px;
-    width:600px;
+    width:50%;
     overflow:hidden;
 }
 .sectionTwo .box .boxTitle {
@@ -173,7 +174,7 @@ a:link {
 .sectionThree {
     margin:0px -8px 0px ; 
     width:auto; 
-    height:600px;
+    height:800px;
     background-color:#F09C54;
 }
 .orangeWhiteBox {
