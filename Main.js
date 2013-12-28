@@ -27,6 +27,21 @@ $(document).ready(function () {
             $('.buttonStyle').slideUp();
         }
     });
+    $('.buttonStyle').on('click', function (event) {
+        switch (event.currentTarget.innerHTML) {
+            case 'Experience':
+                //console.log($(this));
+                $('html, body').animate({
+                    scrollTop: $('.sectionTwo').offset().top
+                }, 1000);
+                break;
+            case 'Projects And Sites':
+                $('html, body').animate({
+                    scrollTop: $('.sectionThree').offset().top
+                }, 1000);
+                break;
+        }
+    });
     //*************************************************
     //chart
     //*************************************************

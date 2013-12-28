@@ -34,7 +34,9 @@ background:#000
 .header{
 	height:40px;
 	width:890px;
-	margin:0 auto;
+    left:230px;
+	/*margin:0 auto;*/
+    position:absolute;
 	/*margin:-10px;*/
 	background-color:#D7E9ED;
 	/*text-align:center;*/
@@ -98,7 +100,7 @@ a:link {
 	font-size:14px;
     font-style:normal;
     text-align:left;
-	border:0px solid #1A87B9
+	border:0px solid #1A87B9;
 }
 .buttonStyle:hover {
 	background:#E82C0C;
@@ -108,7 +110,8 @@ a:link {
 	border-radius:0px;
 	-moz-border-radius:0px;
 	-webkit-border-radius:0px;
-	border:0px solid #1A87B9
+	border:0px solid #1A87B9;
+    cursor: pointer;
 }
 .buttonStyle:active {
 	background:#A66E6D;
@@ -120,6 +123,9 @@ a:link {
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
 	border-top: 20px solid gray;
+}
+.spacer {
+    height:1px;
 }
 .sectionTwo {
     margin:500px -8px 0px -8px; 
@@ -137,6 +143,7 @@ a:link {
 .sectionTwo .box {
     display:inline;
     float:left;
+    margin:0px 0px 0px 125px;
     height:400px;
     width:50%;
     overflow:hidden;
