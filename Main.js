@@ -46,12 +46,13 @@ $(document).ready(function () {
     //chart
     //*************************************************
     var data = {
-        labels: ["Javascript", "ExtJS", "C#", ".Net", "HTML", "CSS","SQL","Netezza"],
+        labels: ["Javascript", "ExtJS", "C#", ".Net", "HTML", "CSS","SQL"],
         datasets: [
             {
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,1)",
-                data: [8, 10, 10, 9, 8, 7 ,7,5]
+                fillColor: "#7A90A8",
+                //strokeColor: "rgba(220,220,220,1)",
+                strokeColor: "white",
+                data: [8, 10, 10, 9, 8, 7 ,7]
             }
         ]
     }
@@ -93,7 +94,7 @@ $(document).ready(function () {
         scaleFontStyle: "normal",
 
         //String - Scale label font colour	
-        scaleFontColor: "#666",
+        scaleFontColor: "#D7E9ED",
 
         ///Boolean - Whether grid lines are shown across the chart
         scaleShowGridLines: true,
