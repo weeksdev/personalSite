@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./src/PersonalSite.Api
+      dockerfile: Dockerfile
+    container_name: personal-site-app
+    ports:
+      - "8080:8080" # Map host port 8080 to container port 8080 (Kestrel default)
+      - "8081:80"   # Optionally map host port 8081 to container port 80 if needed
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080 # Ensure Kestrel listens on port 8080
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=personal_site_blog;Username=postgres;Password=postgres_password # Ensure this matches db service
+    depends_on:
+      - db
+    volumes:
+      # Optional: For development, you might want to mount your source code
+      # to enable hot reloading if you configure it in your .NET app.
+      # - ./src/PersonalSite.Api:/app # Be cautious with this in production images
+      - ./src/PersonalSite.Api/wwwroot:/app/wwwroot # Mount wwwroot for static file changes
+
+  db:
+    image: postgres:15 # Use a specific version of PostgreSQL
+    container_name: personal-site-db
+    ports:
+      - "5432:5432" # Map host port 5432 to container port 5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: personal_site_blog
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist data
+
+volumes:
+  postgres_data: # Defines the named volume for data persistence

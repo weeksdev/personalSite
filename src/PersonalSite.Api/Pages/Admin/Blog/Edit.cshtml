@@ -1,0 +1,48 @@
+@page "{id:int}"
+@model PersonalSite.Api.Pages.Admin.Blog.EditModel
+@{
+    ViewData["Title"] = "Edit Blog Post";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Post.Id" />
+
+            <div class="mb-3">
+                <label asp-for="Post.Title" class="form-label"></label>
+                <input asp-for="Post.Title" class="form-control" />
+                <span asp-validation-for="Post.Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Post.Content" class="form-label"></label>
+                <textarea asp-for="Post.Content" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="Post.Content" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Post.PublishedDate" class="form-label"></label>
+                <input asp-for="Post.PublishedDate" class="form-control" type="datetime-local" />
+                <span asp-validation-for="Post.PublishedDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Post.Author" class="form-label"></label>
+                <input asp-for="Post.Author" class="form-control" />
+                <span asp-validation-for="Post.Author" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

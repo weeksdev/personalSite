@@ -1,0 +1,69 @@
+@page
+@model PersonalSite.Api.Pages.ContactModel
+@{
+    ViewData["Title"] = Model.ViewData["Title"]?.ToString() ?? "Contact Me";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <header class="text-center mb-4">
+                <h1>@ViewData["Title"]</h1>
+                <p class="lead">If you'd like to get in touch, please fill out the form below or connect with me through other channels.</p>
+            </header>
+            <hr />
+
+            @if (!string.IsNullOrEmpty(Model.StatusMessage))
+            {
+                <div class="alert @(Model.StatusMessage.StartsWith("Error:") ? "alert-danger" : "alert-success")" role="alert">
+                    @Html.Raw(Model.StatusMessage.Replace("\n", "<br />"))
+                </div>
+            }
+
+            <form method="post" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Form.Name" class="form-label">Your Name</label>
+                    <input asp-for="Form.Name" class="form-control" />
+                    <span asp-validation-for="Form.Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Form.Email" class="form-label">Your Email</label>
+                    <input asp-for="Form.Email" class="form-control" />
+                    <span asp-validation-for="Form.Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Form.Subject" class="form-label">Subject</label>
+                    <input asp-for="Form.Subject" class="form-control" />
+                    <span asp-validation-for="Form.Subject" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Form.Message" class="form-label">Message</label>
+                    <textarea asp-for="Form.Message" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Form.Message" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-send me-2"></i>Send Message</button>
+            </form>
+
+            <hr class="mt-5 mb-4" />
+            <div class="text-center">
+                <p class="mb-2">You can also find me on:</p>
+                <p>
+                    <a href="https://github.com/weeksdev" class="btn btn-outline-dark btn-lg me-2" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                    <a href="http://www.linkedin.com/pub/andrew-weeks/7/337/12a" class="btn btn-outline-primary btn-lg me-2" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="http://stackoverflow.com/users/1975259/weeksdev#" class="btn btn-outline-warning btn-lg me-2" target="_blank" title="Stack Overflow"><i class="bi bi-stack-overflow"></i></a>
+                </p>
+                <p class="mt-3">Or email directly at: <a href="mailto:adweeks@gmail.com">adweeks@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
