@@ -1,0 +1,29 @@
+@page "{id:int}"
+@model PersonalSite.Api.Pages.Blog.PostModel
+@{
+    ViewData["Title"] = Model.Post?.Title ?? "Blog Post";
+}
+
+@if (Model.Post != null)
+{
+    <article>
+        <header class="mb-4">
+            <h1 class="fw-bolder mb-1">@Model.Post.Title</h1>
+            <div class="text-muted fst-italic mb-2">
+                Posted on @Model.Post.PublishedDate.ToString("MMMM dd, yyyy") by @(string.IsNullOrEmpty(Model.Post.Author) ? "Anonymous" : Model.Post.Author)
+            </div>
+        </header>
+        <section class="mb-5">
+            @Html.Raw(Model.Post.Content) @* Assuming Content might contain HTML. Use with caution if content is user-generated and not sanitized. *@
+        </section>
+    </article>
+}
+else
+{
+    <p>Post not found.</p>
+}
+
+<hr />
+<div>
+    <a asp-page="./Index">Back to Blog List</a>
+</div>
